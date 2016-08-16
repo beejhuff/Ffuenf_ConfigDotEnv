@@ -1,0 +1,37 @@
+{
+  "name": "Ffuenf/Ffuenf_ConfigDotEnv",
+  "license": "MIT",
+  "description": "This is a extension for Magento Community Edition that adds the possibility to use dotenv environment variables in the local.xml file.",
+  "authors": [
+    {
+      "name": "Achim Rosenhagen",
+      "email": "a.rosenhagen@ffuenf.de"
+    },
+    {
+      "name": "Ross Golder"
+    }
+  ],
+  "type": "magento-module",
+  "require": {
+    "Ffuenf/Ffuenf_Common": "*",
+    "Ffuenf/Ffuenf_MageTrashApp": "*",
+    "vlucas/phpdotenv": "2.*"
+  },
+  "require-dev": {
+    "aoepeople/composer-installers": "*"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.firegento.com"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/ffuenf/Ffuenf_Common"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/ffuenf/Ffuenf_MageTrashApp"
+    }
+  ]
+}

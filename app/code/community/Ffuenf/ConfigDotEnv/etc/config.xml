@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ffuenf_ConfigDotEnv extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ *
+ * @category   Ffuenf
+ *
+ * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
+ * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
+ * @license    http://opensource.org/licenses/mit-license.php MIT License
+*/
+-->
+<config>
+    <modules>
+        <Ffuenf_ConfigDotEnv>
+            <version>1.0.0</version>
+        </Ffuenf_ConfigDotEnv>
+    </modules>
+    <global>
+        <blocks>
+            <ffuenf_configdotenv>
+                <class>Ffuenf_ConfigDotEnv_Block</class>
+            </ffuenf_configdotenv>
+        </blocks>
+        <helpers>
+            <ffuenf_configdotenv>
+                <class>Ffuenf_ConfigDotEnv_Helper</class>
+            </ffuenf_configdotenv>
+        </helpers>
+        <models>
+            <ffuenf_configdotenv>
+                <class>Ffuenf_ConfigDotEnv_Model</class>
+            </ffuenf_configdotenv>
+        </models>
+        <resources>
+            <ffuenf_configdotenv_setup>
+                <setup>
+                    <module>Ffuenf_ConfigDotEnv</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+            </ffuenf_configdotenv_setup>
+        </resources>
+    </global>
+    <uninstall>
+        <filename>uninstall.txt</filename>
+    </uninstall>
+    <phpunit>
+        <suite>
+            <modules>
+                <Ffuenf_ConfigDotEnv/>
+            </modules>
+        </suite>
+    </phpunit>
+</config>

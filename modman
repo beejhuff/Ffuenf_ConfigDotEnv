@@ -1,0 +1,3 @@
+app/code/local/Mage/Core/Model/Config/Base.php app/code/local/Mage/Core/Model/Config/Base.php
+app/code/community/Ffuenf/ConfigDotEnv         app/code/community/Ffuenf/ConfigDotEnv
+app/etc/modules/Ffuenf_ConfigDotEnv.xml        app/etc/modules/Ffuenf_ConfigDotEnv.xml

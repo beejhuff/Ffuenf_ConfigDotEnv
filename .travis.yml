@@ -1,0 +1,44 @@
+language: php
+sudo: false
+cache:
+  apt: true
+  directories:
+  - "$HOME/.composer/cache"
+  - "$HOME/.cache/bin"
+  - "$HOME/.n98-magerun/modules"
+  - "$HOME/.cache/magento"
+php:
+- 5.5
+- 5.6
+- 7.0
+matrix:
+  fast_finish: true
+  allow_failures:
+  - php: 5.6
+    env: MAGENTO_VERSION=ce-1.8.1.0
+  - php: 7.0
+    env: MAGENTO_VERSION=ce-1.8.1.0
+env:
+  global:
+  - APPNAME=Ffuenf_ConfigDotEnv
+  matrix:
+  - MAGENTO_VERSION=ce-1.9.2.4
+  - MAGENTO_VERSION=ce-1.9.1.1
+  - MAGENTO_VERSION=ce-1.8.1.0
+  - MAGENTO_VERSION=ce-1.7.0.2
+  - MAGENTO_VERSION=ce-1.6.2.0
+before_install:
+- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/before_install.sh
+  | bash
+script:
+- curl -sSL https://raw.githubusercontent.com/ffuenf/MageTestStand/master/script.sh
+  | bash
+deploy:
+  provider: releases
+  file:
+  - "${APPNAME}-${TRAVIS_TAG}.zip"
+  - "${APPNAME}-${TRAVIS_TAG}.tar.gz"
+  skip_cleanup: true
+  on:
+    branch: master
+    tags: true
