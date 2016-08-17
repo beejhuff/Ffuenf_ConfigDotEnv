@@ -15,9 +15,12 @@
  * @copyright  Copyright (c) 2016 ffuenf (http://www.ffuenf.de)
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
-
-require('./vendor/vlucas/phpdotenv/src/Dotenv.php');
-require('./vendor/vlucas/phpdotenv/src/Loader.php');
+foreach (glob('./vendor/vlucas/phpdotenv/src/*.php') as $filename) {
+    require($filename);
+}
+foreach (glob('./vendor/vlucas/phpdotenv/src/Exception/*.php') as $filename) {
+    require($filename);
+}
 
 class Ffuenf_ConfigDotEnv_Model_Config_Element extends Mage_Core_Model_Config_Element
 {
