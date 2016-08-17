@@ -16,17 +16,20 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
-require(MAGENTO_ROOT.'/vendor/vlucas/phpdotenv/src/Dotenv.php');
-require(MAGENTO_ROOT.'/vendor/vlucas/phpdotenv/src/Loader.php');
+require('./vendor/vlucas/phpdotenv/src/Dotenv.php');
+require('./vendor/vlucas/phpdotenv/src/Loader.php');
 
 class Ffuenf_ConfigDotEnv_Model_Config_Element extends Mage_Core_Model_Config_Element
 {
     public function xmlentities($value = null)
     {
-        $dotenv = new Dotenv\Dotenv(MAGENTO_ROOT);
+        $docroot = getcwd() . DS;
+        $projectroot = preg_replace( '~[/\\\\][^/\\\\]*[/\\\\]$~' , DS , $docroot );
+        $dotenv = new Dotenv\Dotenv($projectroot);
         $dotenv->load();
         $value = parent::xmlentities($value);
         if (substr($value, 0, 1) == "$") {
+            $dotenv->required(substr($value, 1));
             $value = getenv(substr($value, 1));
         }
         return $value;
